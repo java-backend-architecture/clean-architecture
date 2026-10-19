@@ -1,0 +1,11 @@
+gg:
+  jte:
+    development-mode: true
+spring:
+  application:
+    name: clean-architecture
+  aop:
+    proxy-target-class: false
+  jpa:
+    hibernate:
+      ddl-auto: none

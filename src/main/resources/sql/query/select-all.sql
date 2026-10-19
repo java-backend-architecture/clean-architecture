@@ -1,0 +1,1 @@
+SELECT id, name, birth_date FROM users ORDER BY id
