@@ -47,7 +47,7 @@ Root package: `dev.dmitriirussu.clean.architecture`
 | Package | Contents |
 |---|---|
 | `model` | `User`, no dependencies |
-| `application.usecase` | `CommandUseCase`, `QueryUseCase`, commands, `UserView` |
+| `application.usecase` | `UserCommandUseCase`, `UserQueryUseCase`, commands, `UserView` |
 | `application.repository` | Ports: `UserCommandRepository`, `UserQueryRepository` |
 | `application.service` | Use case implementations (package-private) |
 | `application.exception` | `UserNotFoundException` |
@@ -62,7 +62,7 @@ Root package: `dev.dmitriirussu.clean.architecture`
 ## Design decisions
 
 ### CQRS split
-Separate `CommandUseCase` and `QueryUseCase`, separate `UserCommandRepository` and `UserQueryRepository`. Reads return `UserView`; writes accept `User`.
+Separate `UserCommandUseCase` and `UserQueryUseCase`, separate `UserCommandRepository` and `UserQueryRepository`. Reads return `UserView`; writes accept `User`.
 
 ### No framework annotations in the core
 `application` and `model` have no Spring imports. Services are plain package-private classes, registered by a filtered component scan (by port type) in `infrastructure.bootstrap`. The `Service` suffix in implementation names is just a name, not the Spring `@Service` stereotype.
@@ -80,7 +80,7 @@ Services and adapters are invisible outside their packages. Only the interfaces 
 ### Explicit SQL
 The JDBC adapter keeps its SQL in `src/main/resources/sql/`.
 
-## 🔌 Switching the adapter
+## Switching the adapter
 
 Exactly one adapter is active, selected by a single constant in `AdapterWiringConfig`:
 
@@ -106,7 +106,7 @@ Protection doesn't rely on developer discipline or on tests alone. It is layered
 | **Behavior** | End-to-end tests | `UserApiTest` passes identically on any adapter. |
 
 ### Inbound adapters
-REST and MVC work only through `CommandUseCase` and `QueryUseCase` and don't depend on each other (verified by ArchUnit). Either one can be deleted together with its package without touching the core or other layers. Some classes in `presentation.shared` may be left unused afterwards.
+REST and MVC work only through `UserCommandUseCase` and `UserQueryUseCase` and don't depend on each other (verified by ArchUnit). Either one can be deleted together with its package without touching the core or other layers. Some classes in `presentation.shared` may be left unused afterwards.
 
 ## API
 
