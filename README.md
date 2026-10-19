@@ -6,11 +6,6 @@
 
 Strict dependency direction · three swappable storage adapters · CQRS-style read/write split
 
-![Java](https://img.shields.io/badge/Java-Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
-![Architecture](https://img.shields.io/badge/architecture-ports%20%26%20adapters-blue)
-![Pattern](https://img.shields.io/badge/pattern-CQRS-orange)
-![Checks](https://img.shields.io/badge/enforced%20by-ArchUnit-informational)
-
 </div>
 
 ---
