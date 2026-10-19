@@ -6,23 +6,16 @@
 
 Strict dependency direction · three swappable storage adapters · CQRS-style read/write split
 
+![Java](https://img.shields.io/badge/Java-Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
+![Architecture](https://img.shields.io/badge/architecture-ports%20%26%20adapters-blue)
+![Pattern](https://img.shields.io/badge/pattern-CQRS-orange)
+![Checks](https://img.shields.io/badge/enforced%20by-ArchUnit-informational)
+
 </div>
 
 ---
 
 > The domain is intentionally trivial (`User`). **The structure is the point, not the functionality.**
-
-## Contents
-
-- [Idea](#-idea)
-- [Package structure](#-package-structure)
-- [Design decisions](#-design-decisions)
-- [Switching the adapter](#-switching-the-adapter)
-- [How isolation is enforced](#-how-isolation-is-enforced)
-- [API](#-api)
-- [Tests](#-tests)
-- [Running](#-running)
-- [Limits of this example](#-limits-of-this-example)
 
 ## Idea
 
