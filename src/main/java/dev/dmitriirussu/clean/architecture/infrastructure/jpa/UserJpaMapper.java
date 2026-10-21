@@ -5,6 +5,8 @@ import dev.dmitriirussu.clean.architecture.model.User;
 
 final class UserJpaMapper {
 
+    private UserJpaMapper() {}
+
     static UserJpaEntity toEntity(User user) {
         return new UserJpaEntity(user.id(), user.name(), user.birthDate());
     }
@@ -12,7 +14,5 @@ final class UserJpaMapper {
     static UserView toView(UserJpaEntity e) {
         return new UserView(e.id(), e.name(), e.birthDate());
     }
-
-    private UserJpaMapper() {}
 }
 

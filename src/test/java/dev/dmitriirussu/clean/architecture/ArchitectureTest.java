@@ -21,6 +21,13 @@ class ArchitectureTest {
     }
 
     @Test
+    void coreHasNoJpa() {
+        noClasses().that().resideInAnyPackage("..application..", "..model..")
+                .should().dependOnClassesThat().resideInAnyPackage("jakarta.persistence..", "org.hibernate..")
+                .check(CLASSES);
+    }
+
+    @Test
     void modelDoesNotDependOnOuterLayers() {
         noClasses().that().resideInAPackage("..model..")
                 .should().dependOnClassesThat()
